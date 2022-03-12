@@ -1,3 +1,4 @@
 class Transaction < ApplicationRecord
-    validates :amount, presence: true, :transaction_type, presence: true, :date, presence: true
+    validates :transaction_type, presence: true
+    validates :amount, presence: true
 end
