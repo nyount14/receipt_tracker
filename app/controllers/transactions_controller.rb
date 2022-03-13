@@ -11,6 +11,10 @@ class TransactionsController < ApplicationController
         @transactions = Transaction.all
     end
 
+    def new
+        
+    end
+
     def show
 
     end
