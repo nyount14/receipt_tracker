@@ -42,4 +42,10 @@ class TransactionsController < ApplicationController
             render 'edit'
         end
     end
+
+    def destroy
+        @transaction = Transaction.find(params[:id])
+        @transaction.destroy
+        redirect_to transactions_path
+    end
 end
