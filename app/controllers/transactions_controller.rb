@@ -12,13 +12,17 @@ class TransactionsController < ApplicationController
     end
 
     def new
-        
+        @transaction = Transaction.new
     end
 
     def create
         @transaction = Transaction.new(params.require(:transaction).permit(:amount, :transaction_type))
-        @transaction.save
-        redirect_to @transaction
+        if @transaction.save
+            flash[:notice] = "Transaction added successfully"
+            redirect_to @transaction
+        else
+            render "new"
+        end
     end
 
     def show

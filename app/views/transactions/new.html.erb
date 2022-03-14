@@ -1,5 +1,14 @@
 <h1>Add a transaction</h1>
 
+<% if @transaction.errors.any? %>
+    <h2>The following errors prevented the transaction from being saved:</h2>
+    <ul>
+        <% @transaction.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %> 
+    </ul>
+<% end %>
+
 <%= form_with scope: :transaction, url: transactions_path, local: true do |f| %>
 
     <p>
