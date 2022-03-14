@@ -28,4 +28,18 @@ class TransactionsController < ApplicationController
     def show
         @transaction = Transaction.find(params[:id])
     end
+
+    def edit
+        @transaction = Transaction.find(params[:id])
+    end
+
+    def update
+        @transaction = Transaction.find(params[:id])
+        if @transaction.update(params.require(:transaction).permit(:amount, :transaction_type))
+            flash[:notice] = "Transaction was updated successfully"
+            redirect_to @transaction
+        else
+            render 'edit'
+        end
+    end
 end
