@@ -15,6 +15,12 @@ class TransactionsController < ApplicationController
         
     end
 
+    def create
+        @transaction = Transaction.new(params.require(:transaction).permit(:amount, :transaction_type))
+        @transaction.save
+        redirect_to @transaction
+    end
+
     def show
         @transaction = Transaction.find(params[:id])
     end
