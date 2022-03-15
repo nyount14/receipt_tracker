@@ -9,6 +9,7 @@ class TransactionsController < ApplicationController
     
     def index
         @transactions = Transaction.all
+        
     end
 
     def new
@@ -16,10 +17,10 @@ class TransactionsController < ApplicationController
     end
 
     def create
-        @transaction = Transaction.new(params.require(:transaction).permit(:amount, :transaction_type))
+        @transaction = Transaction.new(params.require(:transaction).permit(:amount, :transaction_type, :date))
         if @transaction.save
             flash[:notice] = "Transaction added successfully"
-            redirect_to @transaction
+            redirect_to transactions_path
         else
             render "new"
         end
@@ -35,9 +36,9 @@ class TransactionsController < ApplicationController
 
     def update
         @transaction = Transaction.find(params[:id])
-        if @transaction.update(params.require(:transaction).permit(:amount, :transaction_type))
+        if @transaction.update(params.require(:transaction).permit(:amount, :transaction_type, :date))
             flash[:notice] = "Transaction was updated successfully"
-            redirect_to @transaction
+            redirect_to transactions_path
         else
             render 'edit'
         end
