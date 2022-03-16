@@ -1,5 +1,7 @@
 <h1>Add a transaction</h1>
 
+
+
 <% if @transaction.errors.any? %>
     <h2>The following errors prevented the transaction from being saved:</h2>
     <ul>
@@ -17,8 +19,8 @@
     </p>
 
     <p>
-        <%= f.label :transaction_type %><br>
-        <%= f.text_field :transaction_type %>
+        Transactions<br>
+        <%= f.text_field :t_type %>
     </p>
 
     <p>

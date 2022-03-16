@@ -1,7 +1,7 @@
 <h1>show an individual transaction</h1>
 
 <p><strong>Amount: </strong><%= @transaction.amount %></p>
-<p><strong>Type: </strong> <%= @transaction.transaction_type %></p>
+<p><strong>Type: </strong> <%= @transaction.t_type %></p>
 <p><strong>Date: </strong> <%= @transaction.date %></p>
 
 <%= link_to 'Edit', edit_transaction_path(@transaction) %> |

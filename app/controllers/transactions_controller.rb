@@ -17,7 +17,7 @@ class TransactionsController < ApplicationController
     end
 
     def create
-        @transaction = Transaction.new(params.require(:transaction).permit(:amount, :transaction_type, :date))
+        @transaction = Transaction.new(params.require(:transaction).permit(:amount, :t_type, :date))
         if @transaction.save
             flash[:notice] = "Transaction added successfully"
             redirect_to transactions_path
@@ -36,7 +36,7 @@ class TransactionsController < ApplicationController
 
     def update
         @transaction = Transaction.find(params[:id])
-        if @transaction.update(params.require(:transaction).permit(:amount, :transaction_type, :date))
+        if @transaction.update(params.require(:transaction).permit(:amount, :t_type, :date))
             flash[:notice] = "Transaction was updated successfully"
             redirect_to transactions_path
         else
