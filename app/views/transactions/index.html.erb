@@ -13,7 +13,7 @@
     <tbody>
         <% @transactions.each do |transaction| %>
             <tr>
-                <td><%= sprintf("%.2f",(transaction.amount)) %></td>
+                <td><%= number_to_currency(transaction.amount) %></td>
                 <td><%= transaction.t_type %></td>
                 <td><%= transaction.date %></td>
                 <td><%= link_to 'Show', transaction_path(transaction) %></td>
