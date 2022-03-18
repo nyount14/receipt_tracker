@@ -16,7 +16,12 @@
 
     <p>
         Transaction<br>
-        <%= f.text_field :t_type %>
+        <%= f.select :t_type, ["credit", "debit"] %>
+    </p>
+
+     <p>
+        Category<br>
+        <%= f.select :category, ["food", "fuel", "fun", "discretionary"] %>
     </p>
 
     <p>

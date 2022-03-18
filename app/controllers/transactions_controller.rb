@@ -2,16 +2,13 @@ class TransactionsController < ApplicationController
     before_action :find_by_id, only: [:show, :edit, :update, :destroy]
     
     def home
-
     end
 
     def about
-
     end
     
     def index
-        @transactions = Transaction.all
-        
+        @transactions = Transaction.all  
     end
 
     def new
