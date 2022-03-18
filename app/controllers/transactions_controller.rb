@@ -52,6 +52,6 @@ class TransactionsController < ApplicationController
     end
 
     def whitelist
-        params.require(:transaction).permit(:amount, :t_type, :date)
+        params.require(:transaction).permit(:amount, :t_type, :date, :category)
     end
 end
