@@ -1,0 +1,32 @@
+<% if @transaction.errors.any? %>
+    <h2>The following errors prevented the transaction from being saved:</h2>
+    <ul>
+        <% @transaction.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %> 
+    </ul>
+<% end %>
+
+<%= form_with(model: @transaction, local: true) do |f| %>
+
+    <p>
+        <%= f.label :amount %><br>
+        <%= f.text_field :amount %>
+    </p>
+
+    <p>
+        Transaction<br>
+        <%= f.text_field :t_type %>
+    </p>
+
+    <p>
+        <%= f.label :date %><br>
+        <%= f.date_field :date %>
+    </p>
+
+    <p>
+        <%= f.submit %>
+        
+    </p>
+
+<% end %>

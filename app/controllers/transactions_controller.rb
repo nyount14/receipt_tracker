@@ -1,4 +1,6 @@
 class TransactionsController < ApplicationController
+    before_action :find_by_id, only: [:show, :edit, :update, :destroy]
+    
     def home
 
     end
@@ -17,7 +19,7 @@ class TransactionsController < ApplicationController
     end
 
     def create
-        @transaction = Transaction.new(params.require(:transaction).permit(:amount, :t_type, :date))
+        @transaction = Transaction.new(whitelist)
         if @transaction.save
             flash[:notice] = "Transaction added successfully"
             redirect_to transactions_path
@@ -27,16 +29,13 @@ class TransactionsController < ApplicationController
     end
 
     def show
-        @transaction = Transaction.find(params[:id])
     end
 
     def edit
-        @transaction = Transaction.find(params[:id])
     end
 
     def update
-        @transaction = Transaction.find(params[:id])
-        if @transaction.update(params.require(:transaction).permit(:amount, :t_type, :date))
+        if @transaction.update(whitelist)
             flash[:notice] = "Transaction was updated successfully"
             redirect_to transactions_path
         else
@@ -45,8 +44,17 @@ class TransactionsController < ApplicationController
     end
 
     def destroy
-        @transaction = Transaction.find(params[:id])
         @transaction.destroy
         redirect_to transactions_path
+    end
+
+    private
+
+    def find_by_id
+        @transaction = Transaction.find(params[:id])
+    end
+
+    def whitelist
+        params.require(:transaction).permit(:amount, :t_type, :date)
     end
 end
