@@ -1,11 +1,13 @@
 <div class="container mt-3" id="home-container">
-  <div class="mt-4 p-5 bg-success rounded" id="jumbotron">
-    <h1>Jumbotron Example</h1> 
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat..</p> 
+  <div class="mt-4 p-5 bg-white rounded" id="jumbotron">
+    <h1 class="display-1">Mobile Wallet</h1> 
+    <p>Calculate current balances of multiple budget categories in real time by tracking your debits and credits</p>
+    <div class="row">
+      <%= link_to 'Go to list of transactions', transactions_path(@transaction) %>
+      <%= link_to 'About page', about_path %>
+      <%= link_to "Add a transaction", new_transaction_path %>
+    </div>
   </div>
 </div>
 
 
-<%= link_to 'Go to list of transactions', transactions_path(@transaction) %>|
-<%= link_to 'About page', about_path %>|
-<%= link_to "Add a transaction", new_transaction_path %>
