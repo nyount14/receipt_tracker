@@ -1,16 +1,30 @@
-<div class="container mt-3" id="home-container">
-  <div class="mt-4 p-5 bg-white rounded" id="jumbotron">
-    <h1 class="display-1">Mobile Wallet</h1> 
-    <p>What can it do for you?</p>
-    <p>Keep track of your debits and credits</p>
-    <p>Manage multiple budget categories at one time</p>
-    <p>Calculate current balances in real time so you never have to worry about overspending again</p>
-    <div class="row">
-      <%= link_to 'Go to list of transactions', transactions_path(@transaction) %>
-      <%= link_to 'About page', about_path %>
-      <%= link_to "Add a transaction", new_transaction_path %>
+<div class="flex-container">
+  <div class="d-md-flex align-items-center justify-content-between">
+    <div>
+      <h1>What can<span class="text-success"> Mobile Wallet</span> do for you?</h1>
+      <ul style="justify-content: center">
+        <li>Keep track of your daily debits and credits</li>
+        <li>Manage multiple budget categories at one time</li>
+        <li>Calculate category balances in real time</li>
+        <li>Keep you from overspending</li>
+      </ul>
     </div>
   </div>
-</div>
+</div>    
+    
+    
+    <%
+=begin%>
+ <h1 class="home-header">Mobile Wallet</h1>
+    <h1>What can<span class="text-success"> Mobile Wallet</span> do for you?</h1>
+  <div class="flex-container-question">
+    <h1>What can<span class="text-success"> Mobile Wallet</span> do for you?</h1>
+  </div> 
+<%
+=end%>
+  
+  
+    
+      
 
 

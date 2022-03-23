@@ -19,15 +19,70 @@
 
 #home-container {
     margin-top: 25px;
+    background-color: beige;
 
 }
 
 #jumbotron {
-    text-align: center;
+    // text-align: center;
     background-image: asset-url('wallet1.jpg');
     background-position: center center;
-    background-repeat: no-repeat;
     background-size: cover;
+    background-repeat: no-repeat;
+    
     height: 700px;
     color: black
 }
+
+.home-background {
+    padding: 5% 2%;
+    background-size: cover;
+    background-image: asset-url("wallet1");
+    height: 90vh;
+    width: 100%;
+  }
+
+.home-header {
+    color: rgb(71, 73, 71);
+    font-size: 8vw;
+}
+
+// .flex-container {
+//     background:rgb(233, 50, 50);
+//     display: flex;
+//     flex-direction: column;
+//     width: 60%;
+//     justify-content: center;
+// }
+
+.flex-container {
+    display: flex;
+    justify-content: center;
+    background-image: asset-url("wallet1");
+    background-size: cover;
+    height: 90vh
+}
+
+// .flex-container-question {
+//     display: flex;
+//     justify-content: center;
+//     width: 60%;
+// }
+
+// .flex-container-bullets {
+//     display: flex;
+//     justify-content: center;
+//     width: 60%;
+//     margin-top: 50px;
+//     font-size: 35px;
+// }
+  
+// .flex-container > div {
+//     background-color: #f1f1f1;
+//     width: 100px;
+//     margin: 10px;
+//     text-align: center;
+//     line-height: 75px;
+//     font-size: 30px;
+// }
+
