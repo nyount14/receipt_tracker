@@ -1,37 +1,52 @@
-<% if @transaction.errors.any? %>
-    <h2>The following errors prevented the transaction from being saved:</h2>
-    <ul>
-        <% @transaction.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-        <% end %> 
-    </ul>
-<% end %>
+<div class="container pt-5 bg-warning">
+    <% if @transaction.errors.any? %>
+        <h2>The following errors prevented the transaction from being saved:</h2>
+        <ul>
+            <% @transaction.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %> 
+        </ul>
+    <% end %>
 
-<%= form_with(model: @transaction, local: true) do |f| %>
+    <div class="row justify-content-center">
+        <div class="col-10">
+            <%= form_with(model: @transaction, local: true) do |f| %>
+                <div class="form-group row">
+                    <%= f.label :amount, class: "col-2 col-form-label" %>
+                    <div class="col-10">
+                        <%= f.text_field :amount, class: "form-control" %>
+                    </div>
+                </div>
+                <br>
+                <div class="form-group row">
+                    <%= f.label :t_type, class: "col-2 col-form-label" %>
+                    <div class="col-10">
+                        <%= f.select :t_type, ["credit", "debit"], class: "form-select" %>
+                    </div>
+                </div>
+                <br>
+                <div class="form-group row">
+                    <%= f.label :category, class: "col-2 col-form-label" %>
+                    <div class="col-10">
+                        <%= f.select :category, ["fun", "food", "fuel", "other"], class: "form-select" %>
+                    </div>
+                </div>
+                <br>
+                <div class="form-group row">
+                    <%= f.label :date, class: "col-2 col-form-label" %>
+                    <div class="col-10">
+                        <%= f.date_field :date, class: "form-control" %>
+                    </div>
+                </div>
+                <br>
+                <div class="form-group row">
+                    <%= f.submit class: "col-2 btn btn-outline-success" %>
+                </div>
 
-    <p>
-        <%= f.label :amount %><br>
-        <%= f.text_field :amount %>
-    </p>
-
-    <p>
-        Transaction<br>
-        <%= f.select :t_type, ["credit", "debit"] %>
-    </p>
-
-     <p>
-        Category<br>
-        <%= f.select :category, ["food", "fuel", "fun", "discretionary"] %>
-    </p>
-
-    <p>
-        <%= f.label :date %><br>
-        <%= f.date_field :date %>
-    </p>
-
-    <p>
-        <%= f.submit %>
-        
-    </p>
-
-<% end %>
+            <% end %>
+            
+            <br>
+            <%= link_to 'Cancel edit and return to list of transactions', transactions_path(@transaction) %>
+        </div>
+    </div>
+</div>
