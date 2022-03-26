@@ -8,7 +8,9 @@ class TransactionsController < ApplicationController
     end
     
     def index
-        @transactions = Transaction.food
+        @transactions = Transaction.all
+        @transactions = Transaction.order('date DESC')
+
         
     end
 
