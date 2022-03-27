@@ -1,5 +1,5 @@
 class Transaction < ApplicationRecord
-    
+    belongs_to :user
     scope :fuel, -> { where(category: "fuel")}
     scope :food, -> { where(category: "food")}
     scope :fun, -> { where(category: "fun")}

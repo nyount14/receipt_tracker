@@ -20,6 +20,7 @@ class TransactionsController < ApplicationController
 
     def create
         @transaction = Transaction.new(whitelist)
+        @transaction = User.first
         if @transaction.save
             flash[:notice] = "Transaction added successfully"
             redirect_to transactions_path
