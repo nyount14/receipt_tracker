@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_27_184522) do
+ActiveRecord::Schema.define(version: 2022_03_27_205752) do
 
   create_table "transactions", force: :cascade do |t|
     t.float "amount"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2022_03_27_184522) do
     t.string "email"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "password_digest"
   end
 
 end
