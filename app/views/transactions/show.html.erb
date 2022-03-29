@@ -1,13 +1,22 @@
-<h1>show an individual transaction</h1>
+<h1 class="text-center mt-4">Individual Transaction</h1>
+    <div class="container mt-5">
+        <div class="card text-center">
+        <div class="card-header">Username:
+            <%= @transaction.user.username if @transaction.user %>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Amount: <%= @transaction.amount %></h5>
+            <p class="card-text">Transaction Type: <%= @transaction.t_type %></p>
+            <p class="card-text">Date: <%= @transaction.date %></p>
 
-<p><strong>User: </strong><%= @transaction.user.username %></p>
-<p><strong>Amount: </strong><%= @transaction.amount %></p>
-<p><strong>Type: </strong> <%= @transaction.t_type %></p>
-<p><strong>Date: </strong> <%= @transaction.date %></p>
-
-<%= link_to 'Edit', edit_transaction_path(@transaction) %> |
-<%= link_to 'Delete', transaction_path(@transaction), method: :delete, data: { confirm: "Are you sure you want to delete?"} %> |
-<%= link_to 'Return to list of transactions', transactions_path(@transaction) %>     
+        </div>
+        <div class="card-footer text-muted">
+            <%= link_to 'Edit', edit_transaction_path(@transaction), class: "btn btn-outline-success" %> |
+            <%= link_to 'Delete', transaction_path(@transaction), method: :delete, data: { confirm: "Are you sure you want to delete?"}, class: "btn btn-outline-danger" %> |
+            <%= link_to 'Return to list of transactions', transactions_path(@transaction), class: "btn btn-outline-primary" %>
+        </div>
+    </div>
+</div>
             
         
    

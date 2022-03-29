@@ -4,6 +4,7 @@ class Transaction < ApplicationRecord
     scope :food, -> { where(category: "food")}
     scope :fun, -> { where(category: "fun")}
 
+    validates :amount, presence: true
     validates :t_type, presence: true
     validates :date, presence: true
     

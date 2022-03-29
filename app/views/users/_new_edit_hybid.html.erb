@@ -1,0 +1,34 @@
+<div class="row justify-content-center">
+    <div class="col-10">
+        <%= form_with(model: @user, local: true) do |f| %>
+            <div class="form-group row">
+                <%= f.label :username, class: "col-2 col-form-label" %>
+                <div class="col-10">
+                    <%= f.text_field :username, class: "form-control", placeholder: "Enter a username" %>
+                </div>
+            </div>
+            <br>
+            <div class="form-group row">
+                <%= f.label :email, class: "col-2 col-form-label" %>
+                <div class="col-10">
+                    <%= f.email_field :email, class: "form-select", placeholder: "Enter your email address" %>
+                </div>
+            </div>
+            <br>
+            <div class="form-group row">
+                <%= f.label :password, class: "col-2 col-form-label" %>
+                <div class="col-10">
+                    <%= f.password_field :password, class: "form-select", placeholder: "Choose a password" %>
+                </div>
+            </div>
+            <br>
+            <div class="form-group row">
+                <%= f.submit class: "col-2 btn btn-outline-success" %>
+            </div>
+
+        <% end %>
+        
+        <br>
+        <%= link_to 'Cancel edit and return to list of transactions', transactions_path(@transaction) %>
+    </div>
+</div>

@@ -15,7 +15,7 @@
     <tbody>
         <% @transactions.each do |transaction| %>
             <tr>
-                <td><%= transaction.user.username %></td>
+                <td><%= transaction.user.username if transaction.user %></td>
                 <td><%= transaction.date %></td>
                 <td><%= transaction.t_type %></td>
                 <td><%= transaction.category %></td> 
