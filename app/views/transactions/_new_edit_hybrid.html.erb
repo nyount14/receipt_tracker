@@ -1,7 +1,7 @@
-<div class="container pt-5 bg-warning">
+<div class="container pt-5">
     <div class="row justify-content-center">
         <div class="col-10">
-            <%= render 'shared/errors' %>
+            <%= render 'shared/errors', obj: @transaction %>
             <%= form_with(model: @transaction, local: true) do |f| %>
                 <div class="form-group row">
                     <%= f.label :amount, class: "col-2 col-form-label" %>
@@ -32,7 +32,7 @@
                 </div>
                 <br>
                 <div class="form-group row">
-                    <%= f.submit class: "col-2 btn btn-outline-success" %>
+                    <%= f.submit "Add transaction", class: "col-2 btn btn-outline-success" %>
                 </div>
 
             <% end %>
