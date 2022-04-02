@@ -2,7 +2,9 @@
     <div class="container mt-5">
         <div class="card text-center">
         <div class="card-header">Username:
-            <%= @transaction.user.username if @transaction.user %>
+        <% if @transaction.user %>
+            <%= link_to @transaction.user.username, user_path(@transaction.user) %>
+        <% end %>
         </div>
         <div class="card-body">
             <h5 class="card-title">Amount: <%= @transaction.amount %></h5>

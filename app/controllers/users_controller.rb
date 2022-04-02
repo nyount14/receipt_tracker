@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
     before_action :find_by_id, only: [:show, :edit, :update, :destroy]
 
+    def index
+        @users = User.all
+    end
+    
     def new
         @user = User.new
     end
@@ -23,7 +27,7 @@ class UsersController < ApplicationController
         @user = User.find(params[:id])
         if @user.update(user_params)
             flash[:notice] = "Your account information was successfully updated"
-            redirect_to transactions_path
+            redirect_to @user
         else
             render 'edit'
         end
@@ -42,6 +46,10 @@ class UsersController < ApplicationController
 
     def find_by_id
         @user = User.find(params[:id])
+    end
+
+    def destroy
+        
     end
 
 end
