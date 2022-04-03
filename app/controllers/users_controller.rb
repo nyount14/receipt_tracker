@@ -2,7 +2,7 @@ class UsersController < ApplicationController
     before_action :find_by_id, only: [:show, :edit, :update, :destroy]
 
     def index
-        @users = User.all
+        @users = User.paginate(page: params[:page], per_page: 10) 
     end
     
     def new
@@ -35,7 +35,7 @@ class UsersController < ApplicationController
 
     def show
         @user = User.find(params[:id])
-        @transactions = @user.transactions
+        @transactions = @user.transactions.paginate(page: params[:page], per_page: 10).order('date DESC')
     end
 
     private

@@ -1,4 +1,7 @@
 <h1 class="text-center mt-4"><%= @user.username %>'s Profile</h1>
+<div class="apple_pagination mt-3">
+        <%= will_paginate @transactions, :container => false %>
+</div>
 
 <%= gravatar_for @user, size: 200 %>
 

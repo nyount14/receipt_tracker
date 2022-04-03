@@ -8,10 +8,7 @@ class TransactionsController < ApplicationController
     end
     
     def index
-        @transactions = Transaction.all
-        @transactions = Transaction.order('date DESC')
-
-        
+        @transactions = Transaction.paginate(page: params[:page], per_page: 2).order('date DESC')  
     end
 
     def new
