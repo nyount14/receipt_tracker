@@ -19,13 +19,13 @@
             <td><%= transaction.t_type %></td>
             <td><%= transaction.category %></td> 
             <td><%= number_to_currency(transaction.amount) %></td>
-            <td><%= link_to 'Show', transaction_path(transaction) %></td>
-            <td><%= link_to 'Edit', edit_transaction_path(transaction) %></td>
-            <td><%= link_to 'Delete', transaction_path(transaction), method: :delete, data: { confirm: "Are you sure you want to delete?"} %></td>
+            <td><%= link_to 'Details', transaction_path(transaction) %></td>
+            <% if logged_in? && transaction.user == current_user %>
+              <td><%= link_to 'Edit', edit_transaction_path(transaction) %></td>
+              <td><%= link_to 'Delete', transaction_path(transaction), method: :delete, data: { confirm: "Are you sure you want to delete?"} %></td>
+            <% end %>
           </tr>
         <% end %> 
     </tbody>
   </table>
-  <br>
-  <%= link_to "Add a transaction", new_transaction_path %>
 </div>

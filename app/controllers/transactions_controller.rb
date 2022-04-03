@@ -1,5 +1,7 @@
 class TransactionsController < ApplicationController
     before_action :find_by_id, only: [:show, :edit, :update, :destroy]
+    before_action :require_user, except: [:show, :index, :home]
+    before_action :require_same_user, only: [:edit, :update, :destroy]
     
     def home
         redirect_to transactions_path if logged_in?
@@ -51,6 +53,13 @@ class TransactionsController < ApplicationController
 
     def find_by_id
         @transaction = Transaction.find(params[:id])
+    end
+
+    def require_same_user
+        if current_user != @transaction.user
+           flash[:alert] = "You can only edit or delect your own transactions" 
+           redirect_to @transaction 
+        end
     end
 
     def whitelist
