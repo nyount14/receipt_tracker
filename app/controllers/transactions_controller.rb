@@ -2,6 +2,7 @@ class TransactionsController < ApplicationController
     before_action :find_by_id, only: [:show, :edit, :update, :destroy]
     
     def home
+        redirect_to transactions_path if logged_in?
     end
 
     def about
@@ -17,7 +18,7 @@ class TransactionsController < ApplicationController
 
     def create
         @transaction = Transaction.new(whitelist)
-        @transaction.user = User.first
+        @transaction.user = current_user
         if @transaction.save
             flash[:notice] = "Transaction added successfully"
             redirect_to transactions_path
