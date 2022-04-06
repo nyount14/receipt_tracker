@@ -1,0 +1,23 @@
+<h1 class="text-center mt-4">Add a Food Budget Amount</h1>
+
+<div class="row justify-content-center">
+    <div class="col-10">
+        <%= render 'shared/errors', obj: @food_budget %>
+        <%= form_with(model: @food_budget, local: true) do |f| %>
+            <div class="form-group row">
+                <%= f.label :amount, class: "col-2 col-form-label" %>
+                <div class="col-10">
+                    <%= f.text_field :amount, class: "form-control", placeholder: "Enter an amount" %>
+                </div>
+            </div>
+            <br>
+            <div class="form-group row">
+                <%= f.submit class: "col-2 btn btn-outline-success" %>
+            </div>
+
+        <% end %>
+        
+        <br>
+        <%= link_to 'Cancel edit and return to list of transactions', food_budgets_path(@food_budget) %>
+    </div>
+</div>
