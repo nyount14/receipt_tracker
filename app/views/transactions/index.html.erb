@@ -2,10 +2,11 @@
 
     <div class="apple_pagination mt-3">
         <%= will_paginate @transactions, :container => false %>
-    </div>
+    </div> 
+
+<%= Transaction.sum(:amount) %>
 
 <%= render 'transaction' %>
-    
-            
+
 
     
