@@ -10,13 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_06_000347) do
+ActiveRecord::Schema.define(version: 2022_04_07_010354) do
 
-  create_table "food_budgets", force: :cascade do |t|
-    t.float "amount"
+  create_table "budgets", force: :cascade do |t|
+    t.float "food"
+    t.float "fun"
+    t.float "fuel"
+    t.float "gifts"
+    t.float "misc"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id"
   end
 
   create_table "transactions", force: :cascade do |t|

@@ -29,10 +29,12 @@ class TransactionsController < ApplicationController
         end
     end
 
-    def show
+    def edit
+
     end
 
-    def edit
+    def show
+        
     end
 
     def update

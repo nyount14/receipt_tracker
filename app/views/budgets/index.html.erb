@@ -1,0 +1,28 @@
+<h1 class="text-center mt-4">All clients budgets</h1>
+
+<div class="container mt-5">            
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Food</th>
+        <th>Fuel</th>
+        <th>Fun</th>
+        <th>Gifts</th>
+        <th>Misc</th>
+      </tr>
+    </thead>
+    <tbody>
+        <% @budgets.each do |budget| %>
+          <% if budget.user %>
+            <td>added by <%= link_to budget.user.username, user_path(budget.user) %></td> 
+          <% end %> 
+            <td><%= number_to_currency(budget.food) %></td>
+            <td><%= number_to_currency(budget.fuel) %></td>
+            <td><%= number_to_currency(budget.fun) %></td>
+            <td><%= number_to_currency(budget.gifts) %></td>
+            <td><%= number_to_currency(budget.misc) %></td>
+        <% end %> 
+    </tbody>
+  </table>
+</div>
