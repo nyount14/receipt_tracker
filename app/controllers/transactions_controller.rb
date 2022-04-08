@@ -23,7 +23,7 @@ class TransactionsController < ApplicationController
         @transaction.user = current_user
         if @transaction.save
             flash[:notice] = "Transaction added successfully"
-            redirect_to transactions_path
+            redirect_to @transaction.user
         else
             render "new"
         end

@@ -17,7 +17,7 @@ class BudgetsController < ApplicationController
         @budget.user = current_user
         if @budget.save
             flash[:notice] = "Budget amount saved successfully"
-            redirect_to budgets_path
+            redirect_to @budget.user
         else
             render "new"
         end
@@ -34,7 +34,7 @@ class BudgetsController < ApplicationController
     def update
         if @budget.update(whitelist)
             flash[:notice] = "Transaction was updated successfully"
-            redirect_to budgets_path
+            redirect_to @budget.user
         else
             render 'edit'
         end
