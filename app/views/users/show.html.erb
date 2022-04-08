@@ -11,6 +11,10 @@
     <% end %>
 </div>
 
+<h3 class="text-center mt-5"><%= @user.username %>'s Budget</h3>
+
+<%= render 'budgets/budget', obj: @user.budget %>
+
 <h3 class="text-center mt-5"><%= @user.username %>'s Transactions</h3>
 
 <%= render 'transactions/transaction' %>

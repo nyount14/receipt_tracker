@@ -1,9 +1,9 @@
-<h1 class="text-center mt-4"><%= @budget.user.username %>'s budget</h1>
+<h1 class="text-center mt-4"><%= obj.user.username %>'s budget</h1>
     <div class="container mt-5">
         <div class="card text-center">
         <div class="card-header">Username:
-        <% if @budget.user %>
-            <%= link_to @budget.user.username, user_path(@budget.user) %>
+        <% if obj.user %>
+            <%= link_to obj.user.username, user_path(obj.user) %>
         <% end %>
         </div>
         <div class="card-body">
@@ -19,18 +19,18 @@
                     </tr>
                     </thead>
                     <tbody>
-                        <td><%= number_to_currency(@budget.food) %></td>
-                        <td><%= number_to_currency(@budget.fuel) %></td>
-                        <td><%= number_to_currency(@budget.fun) %></td>
-                        <td><%= number_to_currency(@budget.gifts) %></td>
-                        <td><%= number_to_currency(@budget.misc) %></td>
+                        <td><%= number_to_currency(obj.food) %></td>
+                        <td><%= number_to_currency(obj.fuel) %></td>
+                        <td><%= number_to_currency(obj.fun) %></td>
+                        <td><%= number_to_currency(obj.gifts) %></td>
+                        <td><%= number_to_currency(obj.misc) %></td>
                     </tbody>
                 </table>
             </h5>
         </div>
         <div class="card-footer text-muted">
-        <% if logged_in? && @budget.user == current_user %>
-            <%= link_to 'Edit a budget amount', edit_budget_path(@budget), class: "btn btn-outline-success" %>
+        <% if logged_in? && obj.user == current_user %>
+            <%= link_to 'Edit a budget amount', edit_budget_path(obj), class: "btn btn-outline-success" %>
         <% end %>    
         </div>
     </div>
