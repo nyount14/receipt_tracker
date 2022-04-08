@@ -12,10 +12,10 @@
         <th>Misc</th>
       </tr>
     </thead>
-    <tbody>
-        <% @budgets.each do |budget| %>
+    <% @budgets.each do |budget| %>
+      <tbody>
           <% if budget.user %>
-            <td>added by <%= link_to budget.user.username, user_path(budget.user) %></td> 
+            <td><%= link_to budget.user.username, user_path(budget.user) %></td> 
           <% end %> 
             <td><%= number_to_currency(budget.food) %></td>
             <td><%= number_to_currency(budget.fuel) %></td>

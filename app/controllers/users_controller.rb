@@ -15,6 +15,7 @@ class UsersController < ApplicationController
         @user = User.new(user_params)
         if @user.save
             session[:user_id] = @user.id
+            @user.budget = Budget.create(food: 0, fun: 0, fuel: 0, gifts: 0, misc: 0)
             flash[:notice] = "Welcome #{@user.username}.  You have successfully signed up for Virtual Wallet"
             redirect_to transactions_path
         else

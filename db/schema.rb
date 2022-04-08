@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_07_010354) do
+ActiveRecord::Schema.define(version: 2022_04_07_224848) do
 
   create_table "budgets", force: :cascade do |t|
-    t.float "food"
-    t.float "fun"
-    t.float "fuel"
-    t.float "gifts"
-    t.float "misc"
+    t.float "food", default: 0.0
+    t.float "fun", default: 0.0
+    t.float "fuel", default: 0.0
+    t.float "gifts", default: 0.0
+    t.float "misc", default: 0.0
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
