@@ -4,7 +4,7 @@ class UsersController < ApplicationController
     before_action :require_same_user, only: [:edit, :update, :destroy]
 
     def index
-        @users
+        @users = User.all
     end
     
     def new

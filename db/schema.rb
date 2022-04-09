@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_07_224848) do
+ActiveRecord::Schema.define(version: 2022_04_09_003043) do
 
   create_table "budgets", force: :cascade do |t|
     t.float "food", default: 0.0
@@ -25,7 +25,6 @@ ActiveRecord::Schema.define(version: 2022_04_07_224848) do
 
   create_table "transactions", force: :cascade do |t|
     t.float "amount"
-    t.string "t_type"
     t.date "date"
     t.text "description"
     t.datetime "created_at", precision: 6, null: false

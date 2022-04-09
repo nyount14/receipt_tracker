@@ -5,7 +5,6 @@ class Transaction < ApplicationRecord
     scope :fun, -> { where(category: "fun")}
 
     validates :amount, presence: true
-    validates :t_type, presence: true
     validates :date, presence: true
     
 end

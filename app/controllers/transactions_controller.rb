@@ -21,7 +21,9 @@ class TransactionsController < ApplicationController
     def create
         @transaction = Transaction.new(whitelist)
         @transaction.user = current_user
-        if @transaction.save
+        if @transaction.save && current_user.budget[@transaction.category]
+            current_user.budget[@transaction.category] = current_user.budget[@transaction.category] - @transaction.amount
+            current_user.budget.save
             flash[:notice] = "Transaction added successfully"
             redirect_to @transaction.user
         else
@@ -65,6 +67,6 @@ class TransactionsController < ApplicationController
     end
 
     def whitelist
-        params.require(:transaction).permit(:amount, :t_type, :date, :category)
+        params.require(:transaction).permit(:amount, :date, :category)
     end
 end
