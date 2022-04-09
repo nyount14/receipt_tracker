@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_09_003043) do
+ActiveRecord::Schema.define(version: 2022_04_09_014921) do
 
   create_table "budgets", force: :cascade do |t|
     t.float "food", default: 0.0
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 2022_04_09_003043) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "category"
     t.integer "user_id"
+    t.string "payment_method"
   end
 
   create_table "users", force: :cascade do |t|

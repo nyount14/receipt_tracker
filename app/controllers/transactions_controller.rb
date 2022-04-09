@@ -50,7 +50,7 @@ class TransactionsController < ApplicationController
 
     def destroy
         @transaction.destroy
-        redirect_to transactions_path
+        redirect_to @transaction.user
     end
 
     private
@@ -67,6 +67,6 @@ class TransactionsController < ApplicationController
     end
 
     def whitelist
-        params.require(:transaction).permit(:amount, :date, :category)
+        params.require(:transaction).permit(:amount, :date, :category, :payment_method)
     end
 end
