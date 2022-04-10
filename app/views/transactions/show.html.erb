@@ -9,7 +9,7 @@
         <div class="card-body">
             <h5 class="card-title">Amount: <%= @transaction.amount %></h5>
             <p class="card-text">Date: <%= @transaction.date %></p>
-
+            <p class="card-text">Description: <%= @transaction.description %></p>
         </div>
         <div class="card-footer text-muted">
         <% if logged_in? && @transaction.user == current_user %>

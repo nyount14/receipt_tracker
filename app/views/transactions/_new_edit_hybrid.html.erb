@@ -32,6 +32,13 @@
                 </div>
                 <br>
                 <div class="form-group row">
+                    <%= f.label :description, class: "col-2 col-form-label" %>
+                    <div class="col-10">
+                        <%= f.text_field :description, class: "form-control" %>
+                    </div>
+                </div>
+                <br>
+                <div class="form-group row">
                     <%= f.submit "Add transaction", class: "col-2 btn btn-outline-success" %>
                 </div>
 

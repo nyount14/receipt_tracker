@@ -4,7 +4,7 @@ class TransactionsController < ApplicationController
     before_action :require_same_user, only: [:edit, :update, :destroy]
     
     def home
-        redirect_to transactions_path if logged_in?
+        redirect_to current_user if logged_in?
     end
 
     def about
@@ -67,6 +67,6 @@ class TransactionsController < ApplicationController
     end
 
     def whitelist
-        params.require(:transaction).permit(:amount, :date, :category, :payment_method)
+        params.require(:transaction).permit(:amount, :date, :category, :payment_method, :description)
     end
 end

@@ -1,8 +1,5 @@
-<div class="text-center mt-4">
-    <% if logged_in? && @user == current_user %>
-        <%= link_to "Edit your profile information", edit_user_path(@user), class: "btn btn-outline-success" %>
-    <% end %>
-</div>
+<div class="text-center mt-4"></div>
+
 <%= render 'budgets/budget', obj: @user.budget %>
 
 <h1 class="text-center mt-5"><%= @user.username %>'s Transactions</h1>
