@@ -1,0 +1,23 @@
+<h1 class="text-center mt-4">Add a reason for a transaction</h1>
+
+<div class="row justify-content-center">
+    <div class="col-10">
+        <%= render 'shared/errors', obj: @reason %>
+        <%= form_with(model: @reason, local: true) do |f| %>
+            <div class="form-group row">
+                <%= f.label :option, "Reason", class: "col-2 col-form-label" %>
+                <div class="col-10">
+                    <%= f.text_field :option, class: "form-control", placeholder: "Enter a reason" %>
+                </div>
+            </div>
+            <br>
+            <div class="form-group row">
+                <%= f.submit class: "col-2 btn btn-outline-success" %>
+            </div>
+
+        <% end %>
+        
+        <br>
+        <%= link_to 'Cancel edit and return to list of transactions', transactions_path(@transaction) %>
+    </div>
+</div>
