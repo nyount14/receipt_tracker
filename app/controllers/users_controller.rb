@@ -17,7 +17,7 @@ class UsersController < ApplicationController
             session[:user_id] = @user.id
             @user.budget = Budget.create(food: 0, fun: 0, fuel: 0, gifts: 0, misc: 0)
             flash[:notice] = "Welcome #{@user.username}.  You have successfully signed up for Virtual Wallet"
-            redirect_to purchases_path
+            redirect_to user_path(current_user)
         else
             render 'new'
         end
@@ -29,7 +29,7 @@ class UsersController < ApplicationController
     def update
         if @user.update(user_params)
             flash[:notice] = "Your account information was successfully updated"
-            redirect_to @user
+            redirect_to user_path(current_user)
         else
             render 'edit'
         end
