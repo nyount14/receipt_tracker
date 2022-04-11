@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_10_181719) do
+ActiveRecord::Schema.define(version: 2022_04_10_233906) do
 
   create_table "budgets", force: :cascade do |t|
     t.float "food", default: 0.0
@@ -23,13 +23,14 @@ ActiveRecord::Schema.define(version: 2022_04_10_181719) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "reasons", force: :cascade do |t|
-    t.string "option"
+  create_table "purchase_reasons", force: :cascade do |t|
+    t.integer "reason_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "purchase_id"
   end
 
-  create_table "transactions", force: :cascade do |t|
+  create_table "purchases", force: :cascade do |t|
     t.float "amount"
     t.date "date"
     t.text "description"
@@ -38,6 +39,12 @@ ActiveRecord::Schema.define(version: 2022_04_10_181719) do
     t.string "category"
     t.integer "user_id"
     t.string "payment_method"
+  end
+
+  create_table "reasons", force: :cascade do |t|
+    t.string "option"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|

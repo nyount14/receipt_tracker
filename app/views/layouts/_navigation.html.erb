@@ -6,17 +6,18 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <% if logged_in? %>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Actions
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <% if logged_in? %>
-                    <%= link_to "Edit a budget amount", edit_budget_path(current_user.budget), class: "dropdown-item" %>
-                    <%= link_to "Add a transaction", new_transaction_path, class: "dropdown-item" %>
-                <% end %>
+                <%= link_to "Edit a budget amount", edit_budget_path(current_user.budget), class: "dropdown-item" %>
+                <%= link_to "Make a purchase", new_purchase_path, class: "dropdown-item" %>
+                <%= link_to "Add a purchase reason", new_reason_path, class: "dropdown-item" %>
                 </ul>
             </li>
+            <% end %>
                 <% if logged_in? %>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">

@@ -1,0 +1,12 @@
+<h1 class="text-center mt-4">List of Purchases</h1>
+
+    <div class="apple_pagination mt-3">
+        <%= will_paginate @purchases, :container => false %>
+    </div> 
+
+<%= Purchase.sum(:amount) %>
+
+<%= render 'purchase' %>
+
+
+    

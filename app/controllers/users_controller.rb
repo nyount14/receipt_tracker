@@ -17,7 +17,7 @@ class UsersController < ApplicationController
             session[:user_id] = @user.id
             @user.budget = Budget.create(food: 0, fun: 0, fuel: 0, gifts: 0, misc: 0)
             flash[:notice] = "Welcome #{@user.username}.  You have successfully signed up for Virtual Wallet"
-            redirect_to transactions_path
+            redirect_to purchases_path
         else
             render 'new'
         end
@@ -36,13 +36,13 @@ class UsersController < ApplicationController
     end
 
     def show
-        @transactions = @user.transactions.paginate(page: params[:page], per_page: 10).order('date DESC')
+        @purchases = @user.purchases.paginate(page: params[:page], per_page: 10).order('date DESC')
     end
 
     def destroy
         @user.destroy
         session[:user_id] = nil
-        flash[:notice] = "Account and all associated transactions successfully deleted"
+        flash[:notice] = "Account and all associated purchases successfully deleted"
         redirect_to root_path
     end
 

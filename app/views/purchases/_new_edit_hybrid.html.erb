@@ -1,8 +1,8 @@
 <div class="container pt-5">
     <div class="row justify-content-center">
         <div class="col-10">
-            <%= render 'shared/errors', obj: @transaction %>
-            <%= form_with(model: @transaction, local: true) do |f| %>
+            <%= render 'shared/errors', obj: @purchase %>
+            <%= form_with(model: @purchase, local: true) do |f| %>
                 <div class="form-group row">
                     <%= f.label :amount, class: "col-2 col-form-label" %>
                     <div class="col-10">
@@ -39,13 +39,13 @@
                 </div>
                 <br>
                 <div class="form-group row">
-                    <%= f.submit "Add transaction", class: "col-2 btn btn-outline-success" %>
+                    <%= f.submit(@purchase.new_record? ? "add purchase" : "update purchase", class: "col-2 btn btn-outline-success") %>
                 </div>
 
             <% end %>
             
             <br>
-            <%= link_to 'Cancel edit and return to list of transactions', transactions_path(@transaction) %>
+            <%= link_to 'Cancel and return to your dashboard', user_path(current_user) %>
         </div>
     </div>
 </div>

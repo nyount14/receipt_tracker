@@ -33,7 +33,7 @@ class BudgetsController < ApplicationController
 
     def update
         if @budget.update(whitelist)
-            flash[:notice] = "Transaction was updated successfully"
+            flash[:notice] = "Budget amount was updated successfully"
             redirect_to @budget.user
         else
             render 'edit'
@@ -54,7 +54,7 @@ end
 
 def require_same_user
     if current_user != @budget.user
-       flash[:alert] = "You can only edit or delect your own food budget" 
+       flash[:alert] = "You can only edit or delect your own budget amounts" 
        redirect_to @budget
     end
 end

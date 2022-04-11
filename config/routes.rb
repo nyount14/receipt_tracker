@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  root 'transactions#home'
-  get 'about', to:'transactions#about'
-  resources :transactions
+  root 'purchases#home'
+  get 'about', to:'purchases#about'
+  resources :purchases
   get 'signup', to: 'users#new'
   resources :users, except: [:new]
   get 'login', to: 'sessions#new'

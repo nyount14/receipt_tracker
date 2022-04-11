@@ -1,4 +1,4 @@
-<h1 class="text-center mt-4">Add a reason for a transaction</h1>
+<h1 class="text-center mt-4">Add a reason for a purchase</h1>
 
 <div class="row justify-content-center">
     <div class="col-10">
@@ -18,6 +18,6 @@
         <% end %>
         
         <br>
-        <%= link_to 'Cancel edit and return to list of transactions', transactions_path(@transaction) %>
+        <%= link_to 'Cancel and return to your dashboard', user_path(current_user) %>
     </div>
 </div>
