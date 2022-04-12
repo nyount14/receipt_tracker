@@ -1,10 +1,11 @@
 class UsersController < ApplicationController
-    before_action :set_user, only: [:show, :edit, :update, :destroy]
-    before_action :require_user, only: [:edit, :update]
-    before_action :require_same_user, only: [:edit, :update, :destroy]
+    before_action :find_by_id, only: [:show, :edit, :update, :destroy]
+    before_action :require_user, only: [:index, :show, :edit, :update]
+    before_action :require_same_user, only: [:show, :edit, :update, :destroy]
 
     def index
-        @users = User.all
+        # @users = User.all
+        redirect_to current_user if logged_in?
     end
     
     def new
@@ -24,6 +25,7 @@ class UsersController < ApplicationController
     end
 
     def edit
+
     end
 
     def update
@@ -52,13 +54,13 @@ class UsersController < ApplicationController
         params.require(:user).permit(:username, :email, :password)
     end
 
-    def set_user
+    def find_by_id
         @user = User.find(params[:id])
     end
 
     def require_same_user
         if current_user != @user
-           flash[:alert] = "You can only edit your own profile" 
+           flash[:alert] = "You can only view or edit your own profile" 
            redirect_to @user 
         end
     end

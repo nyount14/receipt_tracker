@@ -1,23 +1,18 @@
 class PurchasesController < ApplicationController
     before_action :find_by_id, only: [:show, :edit, :update, :destroy]
-    before_action :require_user, except: [:show, :index, :home]
+    before_action :require_user, except: [:home]
     before_action :require_same_user, only: [:edit, :update, :destroy]
     
-    def home
-        redirect_to current_user if logged_in?
-    end
-
-    def about
-    end
     
     def index
-        @purchases = Purchase.paginate(page: params[:page], per_page: 10).order('date DESC')
+        # @purchases = Purchase.paginate(page: params[:page], per_page: 10).order('date DESC')
+        redirect_to current_user if logged_in?
     end
 
     def new
         @purchase = Purchase.new
     end
-
+   
     def create
         @purchase = Purchase.new(whitelist)
         @purchase.user = current_user
@@ -35,10 +30,6 @@ class PurchasesController < ApplicationController
 
     end
 
-    def show
-        
-    end
-
     def update
         if @purchase.update(whitelist)
             flash[:notice] = "Transaction was updated successfully"
@@ -46,6 +37,10 @@ class PurchasesController < ApplicationController
         else
             render 'edit'
         end
+    end
+
+    def show
+        @purchases = @user.purchases.paginate(page: params[:page], per_page: 10).order('date DESC')
     end
 
     def destroy
