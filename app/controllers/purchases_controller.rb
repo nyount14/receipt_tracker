@@ -67,6 +67,6 @@ class PurchasesController < ApplicationController
     end
 
     def whitelist
-        params.require(:purchase).permit(:amount, :date, :category, :payment_method, :description)
+        params.require(:purchase).permit(:amount, :date, :category, :payment_method, :description, reason_ids: [])
     end
 end

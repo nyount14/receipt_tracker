@@ -7,6 +7,7 @@
         <th>Amount</th>
         <th>Payment Method</th>
         <th>Description</th>
+        <th>Reason for Purchase</th>
         <th colspan="2">Actions</th>
       </tr>
     </thead>
@@ -17,6 +18,12 @@
             <td><%= number_to_currency(purchase.amount) %></td>
             <td><%= purchase.payment_method %></td> 
             <td><%= purchase.description %></td> 
+            <td>
+              <% if purchase.reasons.any? %>
+                  <div class="mt-2"><%= render purchase.reasons %></div>
+              <% end %>
+            </td> 
+            
             <% if logged_in? && purchase.user == current_user %>
               <td><%= link_to 'Edit', edit_purchase_path(purchase) %></td>
               <td><%= link_to 'Delete', purchase_path(purchase), method: :delete, data: { confirm: "Are you sure you want to delete?"} %></td>

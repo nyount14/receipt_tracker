@@ -2,14 +2,15 @@
     <div class="container mt-5">
         <div class="card text-center">
         <div class="card-header">Username:
-        <% if @purchase.user %>
-            <%= link_to @purchase.user.username, user_path(@purchase.user) %>
-        <% end %>
+        <%= link_to @purchase.user.username, user_path(@purchase.user) %>
         </div>
         <div class="card-body">
             <h5 class="card-title">Amount: <%= @purchase.amount %></h5>
             <p class="card-text">Date: <%= @purchase.date %></p>
             <p class="card-text">Description: <%= @purchase.description %></p>
+            <% if @purchase.reasons.any? %>
+                <div class="mt-2"><%= render @purchase.reasons %></div>
+            <% end %>
         </div>
         <div class="card-footer text-muted">
         <% if logged_in? && @purchase.user == current_user %>
