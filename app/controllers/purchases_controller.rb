@@ -4,10 +4,6 @@ class PurchasesController < ApplicationController
     before_action :require_same_user, only: [:edit, :update, :destroy]
     
     
-    def index
-        # @purchases = Purchase.paginate(page: params[:page], per_page: 10).order('date DESC')
-        redirect_to current_user if logged_in?
-    end
 
     def new
         @purchase = Purchase.new
@@ -40,7 +36,7 @@ class PurchasesController < ApplicationController
     end
 
     def show
-        @purchases = @user.purchases.paginate(page: params[:page], per_page: 10).order('date DESC')
+        
     end
 
     def destroy
@@ -57,7 +53,7 @@ class PurchasesController < ApplicationController
     def require_same_user
         if current_user != @purchase.user
            flash[:alert] = "You can only edit or delect your own Purchases" 
-           redirect_to @purchase 
+           redirect_to current_user 
         end
     end
 

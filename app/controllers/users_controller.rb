@@ -3,10 +3,7 @@ class UsersController < ApplicationController
     before_action :require_user, only: [:index, :show, :edit, :update]
     before_action :require_same_user, only: [:show, :edit, :update, :destroy]
 
-    def index
-        # @users = User.all
-        redirect_to current_user if logged_in?
-    end
+    
     
     def new
         @user = User.new
@@ -38,7 +35,11 @@ class UsersController < ApplicationController
     end
 
     def show
-        @purchases = @user.purchases.paginate(page: params[:page], per_page: 10).order('date DESC')
+        # @q = @user.purchases.ransack(params[:q])
+        # @purchases = @q.result(distinct: true)   
+        @purchases = @user.purchases
+
+        
     end
 
     def destroy
@@ -61,7 +62,7 @@ class UsersController < ApplicationController
     def require_same_user
         if current_user != @user
            flash[:alert] = "You can only view or edit your own profile" 
-           redirect_to @user 
+           redirect_to current_user
         end
     end
 
