@@ -41,7 +41,7 @@
                 <div class="form-group row">
                     <%= f.label :reason, class: "col-2 col-form-label" %>
                     <div class="col-10">
-                        <%= f.collection_select :reason_ids, Reason.order(:name), :id, :option, 
+                        <%= f.collection_select :reason_ids, Reason.order(:option), :id, :option, 
                         { prompt: "Select one or more from the list below (can leave blank)" }, { multiple: true, class: "custom-select" } %>
                     </div>
                 </div>
