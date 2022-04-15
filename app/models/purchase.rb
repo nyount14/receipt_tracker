@@ -3,8 +3,9 @@ class Purchase < ApplicationRecord
     has_many :purchase_reasons
     has_many :reasons, through: :purchase_reasons
 
-    scope :Amazon, -> { where(payment_method: "Amazon CC")}
-    scope :Freedom, -> { where(payment_method: "Freedom CC")}
+    scope :amazon, -> { where(payment_method: "Amazon CC")}
+    scope :freedom, -> { where(payment_method: "Freedom CC")}
+    scope :cash, -> { where(payment_method: "cash")}
 
     validates :amount, presence: true
     validates :date, presence: true

@@ -1,7 +1,7 @@
 class PurchasesController < ApplicationController
     before_action :find_by_id, only: [:show, :edit, :update, :destroy]
     before_action :require_user, except: [:home]
-    before_action :require_same_user, only: [:edit, :update, :destroy]
+    before_action :require_same_user, only: [:show, :edit, :update, :destroy]
     
     
 
@@ -18,6 +18,7 @@ class PurchasesController < ApplicationController
             flash[:notice] = "Purchase added successfully"
             redirect_to @purchase.user
         else
+            flash[:alert] = "Purchase was not added.  Try again"
             render "new"
         end
     end
@@ -38,6 +39,7 @@ class PurchasesController < ApplicationController
     def show
         
     end
+
 
     def destroy
         @purchase.destroy

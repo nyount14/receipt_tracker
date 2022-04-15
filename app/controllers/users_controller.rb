@@ -3,7 +3,9 @@ class UsersController < ApplicationController
     before_action :require_user, only: [:index, :show, :edit, :update]
     before_action :require_same_user, only: [:show, :edit, :update, :destroy]
 
-    
+    def index
+        @purchases = @user.purchases
+    end
     
     def new
         @user = User.new
@@ -35,12 +37,28 @@ class UsersController < ApplicationController
     end
 
     def show
-        # @q = @user.purchases.ransack(params[:q])
-        # @purchases = @q.result(distinct: true)   
-        @purchases = @user.purchases
 
-        
+        if params[:search] == "Amazon CC"
+            @purchases = @user.purchases.amazon.paginate(page: params[:page], per_page: 3).order('created_at DESC')
+            elsif params[:search] == "Freedom CC"
+                @purchases = @user.purchases.freedom.paginate(page: params[:page], per_page: 3).order('created_at DESC')
+            elsif params[:search] == "cash"
+                @purchases = @user.purchases.cash.paginate(page: params[:page], per_page: 3).order('created_at DESC')
+            else
+                @purchases = @user.purchases.paginate(page: params[:page], per_page: 3).order('created_at DESC')
+        end
+
+        # if params[:search]
+        #     paymentmethod = params[:search]
+        #     @purchases = @user.purchases.paymentmethod
+        # else
+        #     @purchases = @user.purchases
+        # end
+
+
+
     end
+
 
     def destroy
         @user.destroy
@@ -64,6 +82,10 @@ class UsersController < ApplicationController
            flash[:alert] = "You can only view or edit your own profile" 
            redirect_to current_user
         end
+    end
+
+    def purchase_params
+        params.require(:purhase).permit(:purchase_method)
     end
 
 end

@@ -4,9 +4,7 @@ class BudgetsController < ApplicationController
     before_action :require_same_user, only: [:edit, :update, :destroy]
 
 
-    def index
-        @budgets = Budget.all
-    end
+    
 
     def new
         @budget = Budget.new

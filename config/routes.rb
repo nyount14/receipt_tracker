@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   resources :users, except: [:new, :index]
 
-  resources :budgets
+  resources :budgets, except: [:index]
 
   resources :reasons, except: [:destroy]
 
