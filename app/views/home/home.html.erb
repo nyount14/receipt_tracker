@@ -1,4 +1,6 @@
-<div class="background-image">
+<%
+=begin%>
+ <div class="background-image">
 <div class="container-fluid mt-5">
   
     <div class="d-md-flex justify-content-center mt-5">
@@ -18,7 +20,28 @@
   <div class="container text-center">
     <small>Copyright @ Nancy Proctor</small>
   </div>
-</footer>
+</footer> 
+<%
+=end%>
+
+<div class="home-background">
+  <h1 class="home-header">Let Virtual Wallet Grow Your Money For You.</h1>
+  <br>
+  <p class="home-paragraph">
+    Calculate balances in real time so you know how much you can spend.
+  </p>
+  <p class="home-paragraph">
+    Track your daily expenses so you can reconcile financial accounts with ease.
+  </p>
+
+    <%
+=begin%>
+ <%= link_to "Sign Up", signup_path, class: "btn btn-success btn-lg home-button" %>
+    <%= link_to "Explore Products", products_path, class: "btn home-button explore" %> 
+<%
+=end%>
+  
+</div>
 
   
   

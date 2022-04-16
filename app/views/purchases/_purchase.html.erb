@@ -13,6 +13,8 @@
 <% end %>  
 <br>
 
+<div class="container-fluid">
+<div class="d-sm-flex">
   <table class="table table-hover">
     <thead>
       <tr>
@@ -25,6 +27,7 @@
         <th colspan="2">Actions</th>
       </tr>
     </thead>
+    <tr>
     <tbody>
         <% @purchases.each do |purchase| %>
             <td><%= purchase.date.strftime("%A, %m/%d/%Y") %></td>
@@ -37,13 +40,16 @@
                   <div class="mt-2"><%= render purchase.reasons %></div>
               <% end %>
             </td> 
-            
+            <td>
             <% if logged_in? && purchase.user == current_user %>
-              <td><%= link_to 'Edit', edit_purchase_path(purchase) %></td>
-              <td><%= link_to 'Delete', purchase_path(purchase), method: :delete, data: { confirm: "Are you sure you want to delete?"} %></td>
+              <%= link_to 'Edit', edit_purchase_path(purchase) %>
+              <%= link_to 'Delete', purchase_path(purchase), method: :delete, data: { confirm: "Are you sure you want to delete?"} %>
             <% end %>
+            </td>
           </tr>
         <% end %> 
     </tbody>
   </table>
+  </div>
+  </div>
 </div>

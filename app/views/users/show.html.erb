@@ -2,6 +2,7 @@
     <%= render 'budgets/budget', obj: @user.budget %>
 
     <h1 class="text-center mt-5"><%= @user.username %>'s Purchases</h1>
-
-    <%= render 'purchases/purchase' %>
+    <div class="container-fluid">
+        <%= render 'purchases/purchase' %>
+    </div>
 </div>

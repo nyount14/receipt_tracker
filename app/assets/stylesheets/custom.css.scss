@@ -120,10 +120,10 @@ li {
     font-family:'Courier New', Courier, monospace;
 }
 
-h1 {
-    font-family:'Courier New', Courier, monospace;
-    font-size: 50px;
-}
+// h1 {
+//     font-family:'Courier New', Courier, monospace;
+//     font-size: 50px;
+// }
 
 .nav-link {
     font-size: 1rem;
@@ -162,4 +162,21 @@ h2 {
     font-family:'Courier New', Courier, monospace;
     font-size: 50px;
     color: white
+}
+
+.home-background {
+    background-image: asset-url("register");
+    background-size: cover;
+    background-size: 100% 100%;
+    padding: 5% 2%
+}
+
+.home-header {
+    color: white;
+    font-size: 10vw;
+}
+
+.home-paragraph {
+    color: white;
+    font-size: 1.1vw;
 }
