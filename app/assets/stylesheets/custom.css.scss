@@ -49,6 +49,44 @@ li {
 
 
 
+
+
+h2 {
+    font-family:'Courier New', Courier, monospace;
+    font-size: 50px;
+    color: white
+}
+
+.page-size {
+    height: 85vh;
+    width: 100%;
+}
+
+.home-background {
+    background-image: asset-url("wallet1");
+    // opacity: .8;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 85vh;
+    width: 100%;
+    backdrop-filter: blur(3px);
+    background-color: rgba(178, 60, 253, 0.2);
+}
+
+
+.home-header {
+    font-family:'Courier New', Courier, monospace;
+    color: black;
+    font-size: 7vw;
+}
+
+.home-paragraph {
+    font-family:'Courier New', Courier, monospace;
+    color: black;
+    font-size: 4vw;
+}
+
 .apple_pagination {
     background: #f1f1f1;
     border: 1px solid #e5e5e5;
@@ -76,38 +114,6 @@ li {
       color: black; }
       .apple_pagination a:hover, .apple_pagination a:focus {
         text-decoration: underline; }
-
-h2 {
-    font-family:'Courier New', Courier, monospace;
-    font-size: 50px;
-    color: white
-}
-
-.home-background {
-    background-image: asset-url("wallet1");
-    // opacity: .8;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-    width: 100%;
-    backdrop-filter: blur(3px);
-    background-color: rgba(178, 60, 253, 0.2);
-}
-
-
-
-.home-header {
-    font-family:'Courier New', Courier, monospace;
-    color: black;
-    font-size: 7vw;
-}
-
-.home-paragraph {
-    font-family:'Courier New', Courier, monospace;
-    color: black;
-    font-size: 4vw;
-}
 
 
 // .home-background {
