@@ -1,11 +1,14 @@
-<div class="container-fluid">
 <div id="overlay">
+<div class= "page-size">
+
+<div class="container-fluid">
     <%= render 'budgets/budget', obj: @user.budget %>
 
     <h1 class="text-center mt-5"><%= @user.username %>'s Purchases</h1>
-    <div class="container-fluid">
+    <div class="container bg-light mb-4">
         <%= render 'purchases/purchase' %>
     </div>
+</div>
 </div>
 </div>
 

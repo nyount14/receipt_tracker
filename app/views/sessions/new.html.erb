@@ -5,7 +5,7 @@
  
  <div class="row justify-content-center">
  <div class="col-8">
- <h1 class="text-center mt-4">Login to Virtual Wallet</h1>
+ <h1 class="text-center mt-5">Login to Virtual Wallet</h1>
     <div class="d-flex flex-column p-2">
         <div class="mt-5">
         <%= form_with(scope: :session, url: login_path, local: true) do |f| %>
@@ -29,56 +29,4 @@
 </div> 
 
 
-
-<%
-=begin%>
- <div class= "page-size">
-    <div class="d-flex flex-row p-2 bg-danger">
-        <div class="mt-5">
-        <%= form_with(scope: :session, url: login_path, local: true) do |f| %>
-                <%= f.label :email, class: "p-2 bg-success" %>
-                <%= f.email_field :email, class: "flex-fill", placeholder: "Enter your email address" %>
-                <%= f.label :password, class: "p-2 flex-fill bg-success" %>
-                <%= f.password_field :password, class: "flex-fill", placeholder: "Enter your password" %>
-                <%= f.submit "Login", class: "btn btn-outline-success" %>
-            </div>
-        <% end %>
-        </div>
-    </div>
-</div> 
-<%
-=end%>
-
-
-<%
-=begin%>
- <h1 class="text-center mt-4">Login to Virtual Wallet</h1>
-
-<div class="row justify-content-center mt-5">
-    <div class="col-10">
-        <%= form_with(scope: :session, url: login_path, local: true) do |f| %>
-            <div class="form-group row">
-                <%= f.label :email, class: "col-2 col-form-label" %>
-                <div class="col-10">
-                    <%= f.email_field :email, class: "form-control", placeholder: "Enter your email address" %>
-                </div>
-            </div>
-            <br>
-            <div class="form-group row">
-                <%= f.label :password, class: "col-2 col-form-label" %>
-                <div class="col-10">
-                    <%= f.password_field :password, class: "form-control", placeholder: "Enter your password" %>
-                </div>
-            </div>
-            <br>
-            <div class="form-group row">
-                <%= f.submit "Login", class: "col-2 btn btn-outline-success" %>
-            </div>
-
-        <% end %>
-    </div>
-</div>
-</div> 
-<%
-=end%>
 
