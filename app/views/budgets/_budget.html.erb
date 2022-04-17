@@ -4,6 +4,7 @@
         <div class="card-header"><%= obj.user.username %><%= Time.now.strftime("'s Budget as of %A, %m/%d/%Y") %></div>
         <div class="card-body">
             <h5 class="card-title">
+            <div class="table-responsive">
                 <table class="table table-hover">
                     <thead>
                     <tr>
@@ -22,6 +23,7 @@
                         <td><%= number_to_currency(obj.misc) %></td>
                     </tbody>
                 </table>
+                </div>
             </h5>
         </div>
         <div class="card-footer text-muted"> 
