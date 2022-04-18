@@ -37,7 +37,15 @@ class PurchasesController < ApplicationController
     end
 
     def show
-        
+        if params[:search] == "Amazon CC"
+            @purchases = @user.purchases.amazon.paginate(page: params[:page], per_page: 3).order('created_at DESC')
+        elsif params[:search] == "Freedom CC"
+            @purchases = @user.purchases.freedom.paginate(page: params[:page], per_page: 3).order('created_at DESC')
+        elsif params[:search] == "cash"
+            @purchases = @user.purchases.cash.paginate(page: params[:page], per_page: 3).order('created_at DESC')
+        else
+            @purchases = @user.purchases.paginate(page: params[:page], per_page: 3).order('created_at DESC')
+        end
     end
 
 
