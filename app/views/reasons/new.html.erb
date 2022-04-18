@@ -1,23 +1,23 @@
+<div id="overlay">
+<div class="page-size">
+
 <h1 class="text-center mt-4">Add a reason for a purchase</h1>
 
-<div class="row justify-content-center">
-    <div class="col-10">
-        <%= render 'shared/errors', obj: @reason %>
-        <%= form_with(model: @reason, local: true) do |f| %>
-            <div class="form-group row">
-                <%= f.label :option, "Reason", class: "col-2 col-form-label" %>
-                <div class="col-10">
-                    <%= f.text_field :option, class: "form-control", placeholder: "Enter a reason" %>
-                </div>
-            </div>
-            <br>
-            <div class="form-group row">
-                <%= f.submit class: "col-2 btn btn-outline-success" %>
-            </div>
-
-        <% end %>
-        
+<div class="d-inline flex flex-column center-form">
+    <%= render 'shared/errors', obj: @reason %>
+    <%= form_with(model: @reason, local: true) do |f| %>
+        <div class="p-2">
+            <%= f.label :option, "Reason", class: "col-form-label" %>
+            <%= f.text_field :option, class: "form-control", placeholder: "Enter a reason" %>
+        </div>
         <br>
-        <%= link_to 'Cancel and return to your dashboard', user_path(current_user) %>
-    </div>
+        <div class="d-flex flex-row justify-content-center mb-3">
+            <%= f.submit class: "btn btn-outline-success" %>
+        </div>
+        <div class="d-flex flex-row justify-content-center mb-3">
+            <%= link_to 'Cancel and return to your dashboard', user_path(current_user) %>
+        </div>
+    <% end %>
+</div>
+</div>
 </div>
