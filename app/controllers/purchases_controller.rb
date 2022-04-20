@@ -58,7 +58,7 @@ class PurchasesController < ApplicationController
                 @purchases = @user.purchases.cash.paginate(page: params[:page], per_page: 3).order('created_at DESC')
                 # redirect_to @purchase.payment_method.cash.user
             else
-                @purchases = @user.purchase
+                redirect_to @purchase.user
         end
 
         # if amazon
