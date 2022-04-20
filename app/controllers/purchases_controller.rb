@@ -5,6 +5,10 @@ class PurchasesController < ApplicationController
     
     
 
+    # def index
+    #     @purchases = Purchase.current_user
+    # end
+
     def new
         @purchase = Purchase.new
     end
@@ -37,21 +41,40 @@ class PurchasesController < ApplicationController
     end
 
     def show
-        if params[:search] == "Amazon CC"
-            @purchases = @user.purchases.amazon.paginate(page: params[:page], per_page: 3).order('created_at DESC')
-        elsif params[:search] == "Freedom CC"
-            @purchases = @user.purchases.freedom.paginate(page: params[:page], per_page: 3).order('created_at DESC')
-        elsif params[:search] == "cash"
-            @purchases = @user.purchases.cash.paginate(page: params[:page], per_page: 3).order('created_at DESC')
-        else
-            @purchases = @user.purchases.paginate(page: params[:page], per_page: 3).order('created_at DESC')
-        end
+       
     end
 
 
     def destroy
         @purchase.destroy
-        redirect_to @purchase.user
+        filter
+        if @params == "Amazon CC"
+                @purchases = @user.purchases.amazon.paginate(page: params[:page], per_page: 3).order('created_at DESC')
+                # redirect_to @purchase.payment_method.amazon.user
+            elsif @params == "Freedom CC"
+                @purchases = @user.purchases.freedom.paginate(page: params[:page], per_page: 3).order('created_at DESC')
+                # redirect_to @purchase.payment_method.freedom.user
+            elsif @params == "cash"
+                @purchases = @user.purchases.cash.paginate(page: params[:page], per_page: 3).order('created_at DESC')
+                # redirect_to @purchase.payment_method.cash.user
+            else
+                @purchases = @user.purchase
+        end
+
+        # if amazon
+        
+
+
+
+
+
+
+
+        # redirect_to @purchases.amazon
+        # else
+        #     redirect_to @purchase.user
+        # end
+
     end
 
     private

@@ -8,13 +8,14 @@ Rails.application.routes.draw do
 
   delete 'logout', to: 'sessions#destroy'
 
-  resources :purchases, except: [:index]
+  resources :purchases
 
   resources :users, except: [:new, :index]
 
   resources :budgets, except: [:index]
 
   resources :reasons, except: [:destroy]
+
 
 
 end

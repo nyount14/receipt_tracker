@@ -37,7 +37,18 @@ class UsersController < ApplicationController
     end
 
     def show
-        @purchases = @user.purchases.paginate(page: params[:page], per_page: 3).order('created_at DESC')
+        filter
+        if @params == "Amazon CC"
+                @purchases = @user.purchases.amazon.paginate(page: params[:page], per_page: 3).order('created_at DESC')
+            elsif @params == "Freedom CC"
+                @purchases = @user.purchases.freedom.paginate(page: params[:page], per_page: 3).order('created_at DESC')
+            elsif @params == "cash"
+                @purchases = @user.purchases.cash.paginate(page: params[:page], per_page: 3).order('created_at DESC')
+            else
+                @purchases = @user.purchases.paginate(page: params[:page], per_page: 3).order('created_at DESC')
+        end
+
+
         # if params[:search] == "Amazon CC"
         #         @purchases = @user.purchases.amazon.paginate(page: params[:page], per_page: 3).order('created_at DESC')
         #     elsif params[:search] == "Freedom CC"
@@ -49,10 +60,10 @@ class UsersController < ApplicationController
         # end
 
         # if params[:search]
-        #     paymentmethod = params[:search]
-        #     @purchases = @user.purchases.paymentmethod
+        #     payment_method = params[:search]
+        #     @purchases = @user.purchases.payment_method.paginate(page: params[:page], per_page: 3).order('created_at DESC')
         # else
-        #     @purchases = @user.purchases
+        #     @purchases = @user.purchases.paginate(page: params[:page], per_page: 3).order('created_at DESC')
         # end
 
 
